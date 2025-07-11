@@ -33,6 +33,7 @@ simplecc("发财了去植发", "s2t"); // '發財了去植髮'
 "t2s"
 "s2tw"
 "s2hk"
-"s2twp"
 "hk2s"
+"s2twp"
+"tw2sp"
 ```
