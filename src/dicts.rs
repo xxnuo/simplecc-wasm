@@ -39,7 +39,11 @@ pub static S2TW: LazyLock<Dict> = LazyLock::new(|| S2T.clone().chain(builtin_dic
 /// Simplified Chinese to Traditional Chinese (Hong Kong Standard)
 pub static S2HK: LazyLock<Dict> = LazyLock::new(|| S2T.clone().chain(builtin_dicts!("HKVariants")));
 
-/// Simplified Chinese to Traditional Chinese (Taiwan Standard) with
+/// Traditional Chinese (Hong Kong Standard) to Simplified Chinese
+pub static HK2S: LazyLock<Dict> =
+    LazyLock::new(|| T2S.clone().chain(builtin_dicts!("HKVariantsRevPhrases")));
+
+/// Simplified Chinese to Traditional Chinese (Taiwan Standard) with Phrases
 pub static S2TWP: LazyLock<Dict> = LazyLock::new(|| {
     S2T.clone().chain(builtin_dicts!(
         "TWVariants",
@@ -49,8 +53,9 @@ pub static S2TWP: LazyLock<Dict> = LazyLock::new(|| {
     ))
 });
 
-pub static HK2S: LazyLock<Dict> =
-    LazyLock::new(|| T2S.clone().chain(builtin_dicts!("HKVariantsRevPhrases")));
+/// Traditional Chinese (Taiwan Standard) to Simplified Chinese with Phrases
+pub static TW2SP: LazyLock<Dict> =
+    LazyLock::new(|| T2S.clone().chain(builtin_dicts!("TWVariantsRevPhrases")));
 
 #[cfg(test)]
 mod tests {
@@ -74,6 +79,8 @@ mod tests {
     fn test_builtin_opencc_chain() {
         test!(S2TW, "s2tw");
         test!(S2HK, "s2hk");
+        test!(HK2S, "hk2s");
         test!(S2TWP, "s2twp");
+        test!(TW2SP, "tw2sp");
     }
 }
