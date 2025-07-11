@@ -1,7 +1,7 @@
 import { Flex, RadioGroup, TextArea, Text } from "@radix-ui/themes";
 import { use, useDeferredValue, useMemo, useState } from "react";
 import init, { simplecc } from "simplecc-wasm";
-const configurations = ["s2t", "t2s", "s2tw", "s2hk", "s2twp", "hk2s"] as const;
+const configurations = ["s2t", "t2s", "s2tw", "s2hk",  "hk2s", "s2twp", "tw2sp"] as const;
 
 const wasmInit = init();
 
